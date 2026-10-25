@@ -372,7 +372,7 @@
 
   /* ================================================================
      MENÜ SAYACI — birlikte geçen toplam süre
-     Aradaki ayrı geçen dönem toplama dahil edilmez.
+     23 Nisan 2026'dan bugüne kesintisiz sayar.
      ================================================================ */
   (function initSiteCounter() {
     var el = document.getElementById("site-counter");
@@ -380,18 +380,12 @@
     var out = el.querySelector(".site-counter-value");
     if (!out) return;
 
-    // Sayılan dönemler (ay değerleri 0 tabanlı: 3 = Nisan, 5 = Haziran, 7 = Ağustos)
-    var BOLUM1_BAS = new Date(2026, 3, 23, 0, 0, 0);   // 23 Nisan 2026
-    var BOLUM1_SON = new Date(2026, 5, 23, 0, 0, 0);   // 23 Haziran 2026
-    var BOLUM2_BAS = new Date(2026, 7, 24, 0, 0, 0);   // 24 Ağustos 2026 — yeniden başlangıç
-    // 23 Haziran – 24 Ağustos arası hesaba katılmaz.
-
-    var bolum1 = BOLUM1_SON - BOLUM1_BAS;
+    // Ay değeri 0 tabanlı: 3 = Nisan
+    var BASLANGIC = new Date(2026, 3, 23, 0, 0, 0);   // 23 Nisan 2026
 
     function guncelle() {
       var simdi = new Date();
-      var bolum2 = Math.max(0, simdi - BOLUM2_BAS);
-      var toplam = bolum1 + bolum2;
+      var toplam = Math.max(0, simdi - BASLANGIC);
 
       var gun  = Math.floor(toplam / 86400000);
       var saat = Math.floor((toplam % 86400000) / 3600000);

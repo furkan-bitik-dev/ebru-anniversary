@@ -7,3 +7,7 @@
 
 # node
 node_modules/
+
+# Siteye eklenmeyen ham dosyalar (GitHub 100 MB, Cloudflare 25 MB dosya sinirini asiyor)
+public/images/ekim25/
+public/images/*.mp4

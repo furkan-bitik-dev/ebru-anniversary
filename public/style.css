@@ -2893,6 +2893,31 @@ body {
   color: rgba(232, 197, 204, 0.55);
 }
 
+/* ---- şiir kartı içinde dış bağlantı (ör. 6. ay "Desem Ki") ---- */
+.poem-link {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212, 168, 83, 0.4);
+  padding-bottom: 0.15rem;
+  transition: color 0.3s, border-color 0.3s;
+}
+.poem-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ---- ana sayfa: devam eden ay rozeti ---- */
+.month-status.ongoing {
+  background: rgba(212, 168, 83, 0.14);
+  color: var(--gold);
+  border: 1px solid rgba(212, 168, 83, 0.38);
+  animation: awaitingPulse 3s ease-in-out infinite;
+}
+
 /* ---- şiir kartları: tablet ve telefon ---- */
 @media (max-width: 900px) {
   .poem-grid { grid-template-columns: minmax(0, 1fr); }
